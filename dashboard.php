@@ -19,7 +19,8 @@ if(!isset($_SESSION['user_id']))
 <div class="container">
 <h2>Dashboard</h2>
 <p class="welcome">Welcome, <?php echo $_SESSION['name']; ?>!</p>
-
+<a href="manage_user.php" class="login-btn">Manage Users</a>
+<a href="register.php" class="login-btn">Register New User</a>
 <a href="logout.php" class="login-btn">Logout</a>
 </div>
 </body>

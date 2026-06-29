@@ -11,6 +11,10 @@ if(isset($_POST['register']))
 
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+    $phone = $_POST['phone'];
+    $gender = $_POST['gender'];
+    $address = $_POST['address'];
+
     $check = "SELECT * FROM users WHERE email='$email'";
     $result = $conn->query($check);
 
@@ -20,7 +24,7 @@ if(isset($_POST['register']))
     }
     else
     {
-        $sql = "INSERT INTO users(name,email,password) VALUES('$name','$email','$password')";
+        $sql = "INSERT INTO users(name,email,password,phone,gender,address) VALUES('$name','$email','$password','$phone','$gender','$address')";
 
         if($conn->query($sql))
         {
@@ -53,6 +57,17 @@ if(isset($_POST['register']))
 <input type="email" name="email" placeholder="Email" required><br><br>
 
 <input type="password" name="password" placeholder="Password" required><br><br>
+
+<input type="text" name="phone" placeholder="Phone Number" required><br><br>
+
+<select name="gender" required>
+    <option value="">Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+</select><br><br>
+
+<textarea name="address" placeholder="Address" required></textarea><br><br>
 
 <button type="submit" name="register">Register</button>
 
